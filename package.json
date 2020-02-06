@@ -21,10 +21,10 @@
   "homepage": "https://burning1993.github.io/vue-print-plugin",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service   lint --fix",
+    "build": "vue-cli-service build --dest build",
+    "lint": "vue-cli-service  lint --fix",
     "predeploy": "yarn build",
-    "deploy": "gh-pages -d dist",
+    "deploy": "gh-pages -d build",
     "build-lib": "vue-cli-service build --target lib --name vue-print-plugin src/plugins/print/print.js",
     "prepublish": "npm run build-lib",
     "publish": "npm publish"
@@ -58,7 +58,9 @@
     "parserOptions": {
       "parser": "babel-eslint"
     },
-    "ignorePatterns": ["dist/"]
+    "ignorePatterns": [
+      "dist/"
+    ]
   },
   "browserslist": [
     "> 1%",
