@@ -57,7 +57,8 @@
     "rules": {},
     "parserOptions": {
       "parser": "babel-eslint"
-    }
+    },
+    "ignorePatterns": ["dist/"]
   },
   "browserslist": [
     "> 1%",
@@ -67,7 +68,7 @@
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
-    "*.{vue}": [
+    "*.{js,vue}": [
       "vue-cli-service lint",
       "git add"
     ]
