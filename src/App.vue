@@ -6,6 +6,7 @@
       </div>
       <div class="col text-center" ref="right">
         <h1>打印特定部分</h1>
+        <a href="https://github.com/BurNing1993/vue-print-plugin" target="_blank" rel="noopener noreferrer">Github</a>
       </div>
     </div>
     <div class="row justify-content-around" ref="btn">
