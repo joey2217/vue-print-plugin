@@ -1,12 +1,11 @@
-'use strict'
-/* eslint-disable */
-exports.__esModule = true
-var vue_1 = require('vue')
-var Print = /** @class */ (function () {
-  function Print (dom) {
+import Vue from 'vue'
+
+class Print {
+  dom: HTMLElement
+  constructor(dom) {
     if (dom instanceof HTMLElement) {
       this.dom = dom
-    } else if (dom instanceof vue_1['default']) {
+    } else if (dom instanceof Vue) {
       this.dom = dom.$el
     } else if (typeof dom === 'string') {
       this.dom = document.querySelector(dom)
@@ -15,14 +14,14 @@ var Print = /** @class */ (function () {
     }
     this.init()
   }
-  Print.prototype.init = function () {
+  init() {
     var style = this.getStyle()
     var html = this.dom.outerHTML
     var content = style + html
     this.iframePrint(content)
   }
   // 获取link 和 style
-  Print.prototype.getStyle = function () {
+  getStyle() {
     var styleString = ''
     var styles = document.querySelectorAll('style,link')
     styles.forEach(function (style) {
@@ -31,7 +30,7 @@ var Print = /** @class */ (function () {
     return styleString
   }
   // 通过 iframe 打印
-  Print.prototype.iframePrint = function (content) {
+  iframePrint(content) {
     var iframe = document.createElement('iframe')
     iframe.setAttribute('style', 'position:absolute;width:0;height:0;top:-100%;left:-100%;')
     var el = document.body.appendChild(iframe)
@@ -44,11 +43,12 @@ var Print = /** @class */ (function () {
       _window.print()
     }
   }
-  return Print
-}())
-exports['default'] = {
+}
+
+
+export default {
   install: function (Vue) {
     // 4. 添加实例方法
-    Vue.prototype.$print = function (dom) { return new Print(dom) }
+    Vue.prototype.$print = (dom) => new Print(dom)
   }
 }

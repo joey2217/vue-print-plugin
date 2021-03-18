@@ -57,10 +57,7 @@
     "rules": {},
     "parserOptions": {
       "parser": "babel-eslint"
-    },
-    "ignorePatterns": [
-      "dist/"
-    ]
+    }
   },
   "browserslist": [
     "> 1%",

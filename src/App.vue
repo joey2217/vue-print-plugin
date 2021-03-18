@@ -6,6 +6,7 @@
       </div>
       <div class="col text-center" ref="right">
         <h1>打印特定部分</h1>
+        <Comp ref="comp"/>
         <a href="https://github.com/BurNing1993/vue-print-plugin" target="_blank" rel="noopener noreferrer">Github</a>
       </div>
     </div>
@@ -13,6 +14,7 @@
       <button type="button" class="btn btn-primary" @click="printAll">打印整页</button>
       <button type="button" class="btn btn-secondary" @click="print('left')">打印左边</button>
       <button type="button" class="btn btn-success" @click="print('right')">打印右边</button>
+      <button type="button" class="btn btn-success" @click="print('comp')">打印组件</button>
       <button type="button" class="btn btn-info" @click="print('btn')">打印按钮</button>
       <button type="button" class="btn btn-dark" @click="print('article')">打印文章</button>
     </div>
@@ -28,13 +30,19 @@
 </template>
 
 <script>
+import Comp from './components/Comp'
+
 export default {
   name: 'app',
+  components: {
+    Comp
+  },
   methods: {
     printAll () {
       window.print()
     },
     print (ref) {
+      console.log(this.$refs[ref])
       this.$print(this.$refs[ref])
     }
   }
