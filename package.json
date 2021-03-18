@@ -1,6 +1,6 @@
 {
   "name": "vue-print-plugin",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "vue,print",
   "main": "dist/vue-print-plugin.common.js",
   "unpkg": "dist/vue-print-plugin.umd.js",
